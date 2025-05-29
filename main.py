@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,12 +9,13 @@ from chat import getResponse
 
 load_dotenv()
 
+CLIENT_URL = os.getenv("API_KEY")
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], 
+    allow_origins=[CLIENT_URL], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
