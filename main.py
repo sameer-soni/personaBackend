@@ -9,14 +9,15 @@ from chat import getResponse
 
 load_dotenv()
 
-CLIENT_URL = os.getenv("API_KEY")
-
+CLIENT_URL = os.getenv("CLIENT_URL")
+print(CLIENT_URL)
 app = FastAPI()
 
+# allow_origins=[CLIENT_URL], 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[CLIENT_URL], 
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
