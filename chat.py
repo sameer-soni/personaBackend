@@ -2,15 +2,7 @@ from openai import OpenAI
 import os
 from systemPrompts import getPrompts
 
-greeting_response=[
-    ""
-]
-
 def getResponse(persona:str, message:str):
-    # if message == "hey":
-    #     return("")
-    
-
     API_KEY = os.getenv("API_KEY")
 
     client = OpenAI(api_key=API_KEY, 
